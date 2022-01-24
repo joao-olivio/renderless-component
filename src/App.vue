@@ -1,28 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <div ref="intersection" style="margin-top: 120vh; height: 10px; width: 10px; border: 1px solid red;">
+
+    </div>
+    <data-fetcher :lazyLoading="true" :serverPath="api">
+      <template v-slot:default="slotScope">
+        <div>
+          <p v-if="slotScope.loading">Loading...</p>
+          <ul>
+            <li :key="$index" v-for="(item, $index) in slotScope.data">
+              {{item.name}}
+            </li>
+          </ul>  
+        </div>
+      </template>
+    </data-fetcher>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import dataFetcher from './components/dataFetcher.vue';
+
+//eslint-disable-next-line no-unused-vars
+const API_URL = 'https://jsonplaceholder.typicode.com/users'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    dataFetcher
+  },
+  data() {
+    return {
+      api: API_URL
+    }
+  },
+  mounted() {
+    
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+ #app {
+   padding-bottom: 1000px;
+ }
 </style>
