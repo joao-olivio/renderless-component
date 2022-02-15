@@ -28,3 +28,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 #1 - this.$scopedSlots.default or this.$slots.default will not work on execution time if the component is not using the slot <data-fetcher></data-fetcher> doesn't work
 
+
+##References:
+
+https://adamwathan.me/renderless-components-in-vuejs/
+
+https://www.telerik.com/blogs/understanding-renderless-components-vue
+
+
+

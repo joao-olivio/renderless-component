@@ -13,7 +13,7 @@ export const IntersectionViewportObserver = (options, callback) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           iObserver.unobserve(options.element);
-          callback();
+          if (callback && typeof callback === 'function') callback();
           resolve();
         }
       })

@@ -30,8 +30,10 @@ export default {
           this.requestData = data;
         });
       }, 3000);
-      
     },
+    greetingOnClick(name) {
+      alert(`Item with name ${name} was clicked :D`);
+    }
   },
   mounted() {
     if (this.lazyLoading) {
@@ -43,7 +45,8 @@ export default {
   render() {
     return this.$scopedSlots.default({
       loading: this.loading,
-      data: this.requestData
+      data: this.requestData,
+      onItemClick: this.greetingOnClick
     });
   },
 }

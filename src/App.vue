@@ -9,7 +9,7 @@
         <div>
           <p v-if="slotScope.loading">Loading...</p>
           <ul>
-            <li :key="$index" v-for="(item, $index) in slotScope.data">
+            <li :key="$index" v-for="(item, $index) in slotScope.data" @click="slotScope.onItemClick(item.name)">
               {{item.name}}
             </li>
           </ul>  
